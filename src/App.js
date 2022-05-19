@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import Listado from "./components/Listado";
 
 function App() {
+  const arr =  [1,2,3]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Alkemy challenge</h1>
+      <Routes >
+        <Route path="/listado" element={<Listado />} ></Route>
+        <Route path="/login" element={<Login />} ></Route>
+      </Routes>
+
+      {
+        arr.map((ele,i) => <h1 key={i}>{ele}</h1>)
+      }
+      
     </div>
   );
 }
