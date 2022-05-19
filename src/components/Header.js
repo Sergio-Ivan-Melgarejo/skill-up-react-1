@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Header = () => {
+function Header () {
   return (
     <header>
         <h2>soy el header</h2>
