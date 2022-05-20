@@ -19,6 +19,13 @@ body{
     font-family: sans-serif;
 }
 
+.title{
+    font-size: 1.5em;
+    color: var(--text-primary-color);
+    margin: 0;
+    padding: 1em;
+}
+
 .navbar{
     background-color: var(--bg-card-color);
     width: 100%;

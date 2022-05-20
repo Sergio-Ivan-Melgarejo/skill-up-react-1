@@ -1,4 +1,59 @@
 .list{
     border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: .5em;
+    padding: .5em;
+}
+
+.movie{
+    max-width: 400px;
+    padding: .5em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.movie:hover{
+    background-color: #00000020;
+}
+
+.movie__container{
+    border-radius: 5px;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie__img{
+    width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    background-color: var(--bg-card-color);
+}
+
+.movie__description{
+    width: 100%;
+    color: var(--text-seconday-color);
+    text-shadow:    1px 1px var(--bg-color),
+                    -1px -1px var(--bg-color),
+                    -1px 1px var(--bg-color),
+                    1px -1px var(--bg-color);
+    position: absolute;
+    left: 0;
+    bottom: -1em;
+    transform: translateY(100%);
+    transition: transform .3s ease-in;
+}
+
+.movie:hover > .movie__container .movie__description{
+    transform: translateY(0)
+}
+
+.movie__title{
+    width: 100%;
+    margin: .5em 0;
+    font-size: 1em;
 }
