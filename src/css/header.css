@@ -8,19 +8,30 @@
     justify-content: space-between;
 }
 
-.nav-user{
+.header .nav-user{
     border: 1px solid var(--second-color);
     width: 3em;
     height: 3em;
     border-radius: 50%; 
-    overflow: hidden;
-    padding-top: 1px;   
+    padding:0;
 }
 
-.nav-user .svg{
+.header .nav-user .nav-link{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.header .nav-user:hover{
+    border-color:var(--primary-color);
+    transition: border-color .3s ease-in;
+}
+
+.header .nav-user .svg{
     height: 100%;
     width: 100%;
     fill: var(--second-color);
+    border-radius: 50%; 
 }
 
 .header .nav-item .span{

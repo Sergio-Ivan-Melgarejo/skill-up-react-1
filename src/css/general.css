@@ -23,7 +23,7 @@ body{
     background-color: var(--bg-card-color);
     width: 100%;
     border-radius: 1em;
-    padding: 1em;
+    padding: .5em;
 }
 
 .nav{
@@ -83,7 +83,6 @@ body{
 .nav-link:hover > .svg{
     fill: var(--primary-color);
 }
-
 
 @media screen and (min-width:726px) {
     .navbar{

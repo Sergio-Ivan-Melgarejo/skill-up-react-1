@@ -1,7 +1,14 @@
 import React from 'react'
+
+// Library
 import axios from 'axios'
 import Swal from 'sweetalert2'
+
+// components
 import { useNavigate } from 'react-router-dom'
+
+// Style
+import "../css/login.css"
 
 const Login = () => {
     const navigate = useNavigate()
@@ -48,16 +55,16 @@ const Login = () => {
     }
 
     return ( 
-        <>
-            <h2>Formulario de login</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='email'>Correo electronico</label>
-                <input id='email' type="email" name="email" autoComplete='current-email' />
-                <label htmlFor='password'>Contraseña</label>
-                <input id='password' type="password" name="password" autoComplete='current-password' />
-                <input type="submit" value="login" disabled={false} />
+        <div className='login'>
+            <h2 className='login__title'>Login</h2>
+            <form className='login__form' onSubmit={handleSubmit}>
+                <label className='label' htmlFor='email'>Correo electronico</label>
+                <input className='input' id='email' type="email" name="email" autoComplete='current-email' />
+                <label className='label' htmlFor='password'>Contraseña</label>
+                <input className='input' id='password' type="password" name="password" autoComplete='current-password' />
+                <input className='btn' type="submit" value="login" disabled={false} />
             </form>
-        </>
+        </div>
     )
 }
 
