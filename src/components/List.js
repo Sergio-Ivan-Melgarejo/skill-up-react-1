@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Listado = () => {
+const List = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -15,4 +15,4 @@ const Listado = () => {
   )
 }
 
-export default Listado
+export default List
