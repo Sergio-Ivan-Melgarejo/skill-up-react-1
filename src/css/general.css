@@ -48,16 +48,16 @@ body{
     left: 50%;
     color: var(--primary-color);
     background: var(--bg-color);
-    border: 1px solid var(--bg-card-color);
+    border: 1px solid var(--primary-color);
     font-weight: bolder;
     padding: .5em;
     border-radius: .5em;
+    line-height: 1em;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s ease-in, transform .3s ease-in, visibility .3s ease-in;
-    z-index: 2;
+    visibility: hidden; 
     user-select: none;
     pointer-events: none;
+    transition: opacity .3s ease-in, transform .3s ease-in, visibility .3s ease-in;
 }
 
 .nav-item:hover > .nav-link .span{

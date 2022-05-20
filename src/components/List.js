@@ -1,5 +1,10 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react';
+
+// Components
+import { useNavigate } from 'react-router-dom';
+
+// Library
+import "../css/list.css";
 
 const List = () => {
   const navigate = useNavigate()
@@ -11,7 +16,7 @@ const List = () => {
  
 
   return (
-    <div>Listado</div>
+    <div className='list'>Listado</div>
   )
 }
 
