@@ -1,19 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // Components
-import { useNavigate } from 'react-router-dom';
+import {  Navigate } from 'react-router-dom';
 
 // Library
 import "../css/list.css";
 
 const List = () => {
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if(token === null) navigate("/login")
-  }, [navigate])
- 
+  // Redirect if user is not logged
+  const token = localStorage.getItem("token");
+  if(!token) return <Navigate to="/login" />
 
   return (
     <>

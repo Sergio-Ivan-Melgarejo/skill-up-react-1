@@ -5,13 +5,17 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 // components
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 // Style
 import "../css/login.css"
 
 const Login = () => {
     const navigate = useNavigate()
+
+    // Redirect if user is not logged
+    const token = localStorage.getItem("token");
+    if(token) return <Navigate to="/" />
 
     const handleSubmit = (e) => {
         e.preventDefault()

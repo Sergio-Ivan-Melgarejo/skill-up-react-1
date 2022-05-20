@@ -9,7 +9,7 @@
 }
 
 .header .nav-user{
-    border: 1px solid var(--second-color);
+    border: 2px solid var(--second-color);
     width: 3em;
     height: 3em;
     border-radius: 50%; 
@@ -57,4 +57,73 @@
         opacity: 1;
         visibility: visible;
     }   
+}
+
+.avatar{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-user.open{
+    border-color: var(--primary-color);
+}
+
+.avatar-conf{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(.0);
+    border-radius: 2px;
+    padding: .5em;
+    background-color: var(--bg-card-color);
+    width: 300px;
+    opacity: 0;
+    visibility: hidden;
+    transition:     transform .5s ease-in, 
+                    visibility .5s ease-in, 
+                    opacity .5s ease-in;
+    z-index: 100;
+}
+
+.avatar-conf.open{
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.avatar-conf .btn{
+    background-color: var(--bg-color);
+    width: 100%;
+}
+
+.avatar-conf .btn:hover{
+    background-color: var(--primary-color);
+}
+
+.shadow{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000050;
+    z-index: 9;
+    transform: scale(0);
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition:     transform .5s ease-in, 
+                    border-radius .5s ease-in, 
+                    visibility .5s ease-in, 
+                    opacity .5s ease-in;
+}
+
+.shadow.open{
+    transform: scale(100%);
+    border-radius: 0%;
+    opacity: 1;
+    visibility: visible;
 }
