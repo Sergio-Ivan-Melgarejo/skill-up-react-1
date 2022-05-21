@@ -18,30 +18,37 @@ const List = () => {
   // Redirect if user is not logged
   const token = localStorage.getItem("token");
 
-  const [moviesList, setMoviesList] = useState([])
+  const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
     axios(`${ENPOINT}discover/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&include_video=false&page=1&with_watch_monetization_types=flatrate`)
     .then(res =>{ 
       console.log(res);
-      if(res.status === 200) setMoviesList(res.data.result);
+      if(res.status === 200) setMoviesList(res.data.results);
     })
     .catch(res => console.log(res))
   }, [setMoviesList])
   
   if(!token) return <Navigate to="/login" />
-
+console.log(moviesList)
   return (
     <>
       <h2 className='title'>List</h2>
       <div className='list'>
-        <div className='movie'>
-          <div className='movie__container'>
-            <img className='movie__img' src='' alt=''/>
-            <p className='movie__description'>de d as das d as d as d as d asdsada sd a sd a sd as d as d  as d asd  asd ad</p>
-          </div>
-          <h3 className='movie__title'>title</h3>
-        </div>
+        {
+          moviesList 
+          ? moviesList.map((movie,index)=> <div key={`moviesList-${index}`} className='movie'>
+              <div className='movie__container'>
+                <img className='movie__img' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=''/>
+                <p className='movie__description'>{movie.overview.length > 90 ? `${movie.overview.slice(0,90)}...` : movie.overview}</p>
+              </div>
+              <div className='movie__tags'>
+                <span>{movie.release_date}</span>
+              </div>
+              <h3 className='movie__title'>{movie.title.length > 30 ? `${movie.title.slice(0,30)}...` : movie.title} </h3>
+            </div>)
+          : "Loading"
+        }
       </div>
     </>
   )
