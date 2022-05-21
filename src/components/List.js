@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import {  Navigate } from 'react-router-dom';
 
-// Library
+// Librarys
+import axios from 'axios';
+
+// Styles
 import "../css/list.css";
+
+const API_KEY = "599b1ab5492b9cdab8144e5bf20b6ae5";
+const ENPOINT = "https://api.themoviedb.org/3/";
+const language = "en-US";
+const adult = "false";
 
 const List = () => {
   // Redirect if user is not logged
   const token = localStorage.getItem("token");
+
+  const [moviesList, setMoviesList] = useState([])
+
+  useEffect(() => {
+    axios(`${ENPOINT}discover/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&include_video=false&page=1&with_watch_monetization_types=flatrate`)
+    .then(res =>{ 
+      console.log(res);
+      if(res.status === 200) setMoviesList(res.data.result);
+    })
+    .catch(res => console.log(res))
+  }, [setMoviesList])
+  
   if(!token) return <Navigate to="/login" />
 
   return (

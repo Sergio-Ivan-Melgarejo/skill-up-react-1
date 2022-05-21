@@ -8,8 +8,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 // Style
-// import "./css/bootstrap.min.css"
-import "./css/app.css"
+// import "./css/bootstrap.min.css";
+import "./css/app.css";
 
 function App() {
   return (

@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-// Library
-import axios from 'axios'
-import Swal from 'sweetalert2'
+// Librarys
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 // components
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom';
 
-// Style
-import "../css/login.css"
+// Styles
+import "../css/login.css";
 
 const Login = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     // Redirect if user is not logged
     const token = localStorage.getItem("token");
