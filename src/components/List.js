@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // Components
-import {  Navigate } from 'react-router-dom';
+import {  Link, Navigate } from 'react-router-dom';
 
 // Styles
 import "../css/list.css";
@@ -50,7 +50,7 @@ console.log(moviesList)
       <div className='list'>
         {
           moviesList 
-          ? moviesList.map((movie,index)=> <div key={`moviesList-${index}`} className='movie'>
+          ? moviesList.map((movie,index)=> <Link to={`/detail/${movie.id}`} key={`moviesList-${index}`} className='movie'>
               <div className='movie__container'>
                 <img className='movie__img' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=''/>
                 <p className='movie__description'>{movie.overview.length > 90 ? `${movie.overview.slice(0,90)}...` : movie.overview}</p>
@@ -59,7 +59,7 @@ console.log(moviesList)
                 <span className='movie__date'>{movie.release_date}</span>
               </div>
               <h3 className='movie__title'>{movie.title.length > 30 ? `${movie.title.slice(0,30)}...` : movie.title} </h3>
-            </div>)
+            </Link>)
           : "Loading"
         }
       </div>

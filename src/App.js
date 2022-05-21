@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 // Style
 // import "./css/bootstrap.min.css";
 import "./css/app.css";
+import Detail from "./components/Detail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<h1>home</h1>} ></Route>
           <Route path="/list" element={<List />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
+          <Route path="/detail/:id" element={<Detail />} ></Route>
         </Routes>  
       </main>
       <Footer />
