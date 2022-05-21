@@ -98,9 +98,30 @@ ul{
 @media screen and (min-width:726px) {
     .navbar{
         flex-direction: column;
-        height: 100%;
+        height: calc(100vh - 1em);
+
+        /*
+            no pude poner con sticky, 
+            tuve que cambiar manualmente 
+            el grid area (5em, en los costados) 
+            y la posicion fixed al nav de
+            header y footer   
+
+        position: sticky;
+        top: .5em;
+        left: .5em;   
+        */  
     }
+
+    .header .navbar,
+    .footer .navbar{
+        position: fixed;
+        top: .5em;
+        width: auto;
+    }
+    
     .nav{
         flex-direction: column;
+        top: 0px;
     }
 }

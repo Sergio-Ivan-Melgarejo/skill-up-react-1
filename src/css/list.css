@@ -22,6 +22,7 @@
     height: 200px;
     position: relative;
     overflow: hidden;
+    z-index: -1;
 }
 
 .movie__img{
