@@ -13,12 +13,8 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
-const Login = () => {
+const Login = ({logged,setLogged}) => {
     const navigate = useNavigate();
-
-    // Redirect if user is not logged
-    const token = localStorage.getItem("token");
-    if(token) return <Navigate to="/" />
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -68,7 +64,8 @@ const Login = () => {
         .then(res=> {
             console.log(res)
             if(res.status === 200) {
-                localStorage.setItem("token",res.data.token)
+                localStorage.setItem("token",res.data.token);
+                setLogged(res.data.token);
                 MySwal.fire({
                     title: <strong>Entered correctly</strong>,
                     icon: 'success',
@@ -89,6 +86,8 @@ const Login = () => {
             })
         })
     }
+
+    if(logged) return <Navigate to="/" />
 
     return ( 
         <div className='login'>

@@ -13,6 +13,8 @@
     border-radius: 5px;
     cursor: pointer;
     justify-self: center;
+    text-decoration: none;
+    color: var(--text-seconday-color);
 }
 
 .movie:hover{
@@ -70,4 +72,5 @@
     width: 100%;
     margin: .5em 0;
     font-size: 1em;
+    color: var(--text-primary-color);
 }

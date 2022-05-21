@@ -9,12 +9,33 @@ import "../css/header.css";
 // IMG
 import avatar from "../img/avatar.png";
 
-function Header () {
+// Library
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+const MySwal = withReactContent(Swal);
+
+function Header ({logged,setLogged}) {
     const [openConf, setOpenConf] = useState(false);
     const handleOpenConf = () => setOpenConf(!openConf);
 
-    // changed component if the user is logged
-    const token = localStorage.getItem("token");
+    const handleSingOut = () => {
+        MySwal.fire({
+            title: 'Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, I am!',
+            background: "#161d2f",
+            color: "#eee"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.removeItem("token");
+                handleOpenConf();
+                setLogged(false);
+            }
+        })
+    }
 
     return (
         <header className='header'>
@@ -52,9 +73,8 @@ function Header () {
                     </li>
                 </ul>  
                 
-
                 {
-                    token 
+                    logged 
                     ?   <div onClick={handleOpenConf} className={openConf ? 'nav-item nav-user open' : 'nav-item nav-user'}>
                             <img className='avatar' src={avatar} alt="avatar"/>
                         </div>
@@ -68,11 +88,11 @@ function Header () {
             </nav>
             
             {
-                    token 
+                    logged
                     ?   <> 
                             <ul className={openConf ? "avatar-conf open" :'avatar-conf'}>
                                 <li className='li'>
-                                    <button className='btn'>Sing out</button>
+                                    <button onClick={handleSingOut} className='btn'>Sing out</button>
                                 </li>
                             </ul>
                             <div onClick={handleOpenConf} className={openConf ? 'shadow open' : 'shadow'}></div> 

@@ -18,10 +18,7 @@ const ENPOINT = "https://api.themoviedb.org/3/";
 const language = "en-US";
 const adult = "false";
 
-const List = () => {
-  // Redirect if user is not logged
-  const token = localStorage.getItem("token");
-
+const List = ({logged}) => {
   const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
@@ -42,8 +39,8 @@ const List = () => {
     })
   }, [setMoviesList])
   
-  if(!token) return <Navigate to="/login" />
-console.log(moviesList)
+  if(!logged) return <Navigate to="/login" />
+
   return (
     <>
       <h2 className='title'>List</h2>
