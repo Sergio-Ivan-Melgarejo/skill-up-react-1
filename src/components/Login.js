@@ -1,14 +1,17 @@
 import React from 'react';
 
-// Librarys
-import axios from 'axios';
-import Swal from 'sweetalert2';
 
 // components
 import { Navigate, useNavigate } from 'react-router-dom';
 
 // Styles
 import "../css/login.css";
+
+// Librarys
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+const MySwal = withReactContent(Swal);
 
 const Login = () => {
     const navigate = useNavigate();
@@ -25,17 +28,17 @@ const Login = () => {
         const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
         if(email === "" || password === ""){
-            Swal.fire("Los campos no pueden estar vacios")
+            MySwal.fire("Los campos no pueden estar vacios")
             return
         }
 
         if(email !== ""  && !regexEmail.test(email)){
-            Swal.fire("Debes escribir una direcion de correo valida")
+            MySwal.fire("Debes escribir una direcion de correo valida")
             return
         }
         
         if(regexEmail !== "challenge@alkemy.org"  && password !== "react"){
-            Swal.fire("Credenciales Invalidas")
+            MySwal.fire("Credenciales Invalidas")
             return
         }
 
@@ -48,13 +51,13 @@ const Login = () => {
             console.log(res)
             if(res.status === 200) {
                 localStorage.setItem("token",res.data.token)
-                Swal.fire("Ingresado correctamente")
+                MySwal.fire("Ingresado correctamente")
                 navigate("/")
             }
         })
         .catch(error => {
             console.log(error)
-            Swal.fire("Ocurrio un error, vuelva a intentelo mas tarder")
+            MySwal.fire("Ocurrio un error, vuelva a intentelo mas tarder")
         })
     }
 

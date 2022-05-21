@@ -1,15 +1,18 @@
 .list{
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(175px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(12em,1fr));
     gap: .5em;
     padding: .5em;
+    justify-content: center;
 }
 
 .movie{
     max-width: 250px;
+    width: 100%;
     padding: .5em;
     border-radius: 5px;
     cursor: pointer;
+    justify-self: center;
 }
 
 .movie:hover{
@@ -48,6 +51,8 @@
     background: linear-gradient(to top,#000 20%, transparent);
     padding: .5em;
     text-align: center;
+    padding-top: 100%;
+    line-height: 1em;
 }
 
 .movie:hover > .movie__container .movie__description{
