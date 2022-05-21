@@ -25,17 +25,19 @@ const List = () => {
   const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
-    axios(`${ENPOINT}discove/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&include_video=false&page=1&with_watch_monetization_types=flatrate`)
+    axios(`${ENPOINT}discover/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&include_video=false&page=1&with_watch_monetization_types=flatrate`)
     .then(res =>{ 
       console.log(res);
       if(res.status === 200) setMoviesList(res.data.results);
     })
-    .catch(res =>{
-      console.log(res)
+    .catch(error =>{
+      console.log(error)
       MySwal.fire({
-        title: <strong>Good job!</strong>,
-        html: <i>You clicked the button!</i>,
-        icon: 'success'
+        title: <strong>Error 404</strong>,
+        html: <i>{error.message}</i>,
+        icon: 'error',
+        background: "#161d2f",
+        color: "#eee"
       })
     })
   }, [setMoviesList])

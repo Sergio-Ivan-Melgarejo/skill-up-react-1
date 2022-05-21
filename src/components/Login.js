@@ -28,17 +28,35 @@ const Login = () => {
         const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
         if(email === "" || password === ""){
-            MySwal.fire("Los campos no pueden estar vacios")
+            MySwal.fire({
+                title: <strong>Error</strong>,
+                html: <i>The fields cannot be empty</i>,
+                icon: 'error',
+                background: "#161d2f",
+                color: "#eee"
+            })
             return
         }
 
         if(email !== ""  && !regexEmail.test(email)){
-            MySwal.fire("Debes escribir una direcion de correo valida")
+            MySwal.fire({
+                title: <strong>Error</strong>,
+                html: <i>You must write a valid email</i>,
+                icon: 'error',
+                background: "#161d2f",
+                color: "#eee"
+            })
             return
         }
         
         if(regexEmail !== "challenge@alkemy.org"  && password !== "react"){
-            MySwal.fire("Credenciales Invalidas")
+            MySwal.fire({
+                title: <strong>Error</strong>,
+                html: <i>Invalid Credentials</i>,
+                icon: 'error',
+                background: "#161d2f",
+                color: "#eee"
+            })
             return
         }
 
@@ -51,13 +69,24 @@ const Login = () => {
             console.log(res)
             if(res.status === 200) {
                 localStorage.setItem("token",res.data.token)
-                MySwal.fire("Ingresado correctamente")
+                MySwal.fire({
+                    title: <strong>Entered correctly</strong>,
+                    icon: 'success',
+                    background: "#161d2f",
+                    color: "#eee"
+                })
                 navigate("/")
             }
         })
         .catch(error => {
             console.log(error)
-            MySwal.fire("Ocurrio un error, vuelva a intentelo mas tarder")
+            MySwal.fire({
+                title: <strong>Error</strong>,
+                html: <i>An error occurred, please try again later</i>,
+                icon: 'error',
+                background: "#161d2f",
+                color: "#eee"
+            })
         })
     }
 
