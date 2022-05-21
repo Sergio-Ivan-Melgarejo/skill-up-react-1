@@ -1,12 +1,6 @@
 .header{
     padding: .5em;
-}
-
-.header .navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+} 
 
 .header .nav-user{
     border: 2px solid var(--second-color);
