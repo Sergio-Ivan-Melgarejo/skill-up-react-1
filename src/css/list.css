@@ -1,5 +1,4 @@
 .list{
-    border: 1px solid red;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
     gap: .5em;
@@ -14,7 +13,7 @@
 }
 
 .movie:hover{
-    background-color: #00000020;
+    background-color: #00000030;
 }
 
 .movie__container{
@@ -46,10 +45,20 @@
     bottom: -1em;
     transform: translateY(100%);
     transition: transform .3s ease-in;
+    background: linear-gradient(to top,#000 20%, transparent);
+    padding: .5em;
+    text-align: center;
 }
 
 .movie:hover > .movie__container .movie__description{
     transform: translateY(0)
+}
+
+.movie__tags{
+    display: flex;
+    padding: 0.5em 0;
+    font-size: .8em;
+    color: var(--text-seconday-color);
 }
 
 .movie__title{

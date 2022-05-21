@@ -43,7 +43,7 @@ console.log(moviesList)
                 <p className='movie__description'>{movie.overview.length > 90 ? `${movie.overview.slice(0,90)}...` : movie.overview}</p>
               </div>
               <div className='movie__tags'>
-                <span>{movie.release_date}</span>
+                <span className='movie__date'>{movie.release_date}</span>
               </div>
               <h3 className='movie__title'>{movie.title.length > 30 ? `${movie.title.slice(0,30)}...` : movie.title} </h3>
             </div>)
