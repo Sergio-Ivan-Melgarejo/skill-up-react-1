@@ -27,7 +27,7 @@ ul{
 
 .title{
     font-size: 1.5em;
-    color: var(--text-primary-color);
+    color: var(--primary-color);
     margin: 0;
     padding: 1em;
 }

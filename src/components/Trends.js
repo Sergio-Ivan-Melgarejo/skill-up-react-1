@@ -18,7 +18,7 @@ const ENPOINT = "https://api.themoviedb.org/3/";
 const language = "en-US";
 const adult = "false";
 
-const List = ({logged}) => {
+const Trends = ({logged}) => {
   const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const List = ({logged}) => {
 
   return (
     <>
-      <h2 className='title'>List</h2>
+      <h2 className='title'>Trends</h2>
       <div className='list'>
         {
           moviesList 
@@ -64,4 +64,4 @@ const List = ({logged}) => {
   )
 }
 
-export default List
+export default Trends

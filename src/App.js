@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 
 // Components
 import Login from "./components/Login";
-import List from "./components/List";
+import Trends from "./components/Trends";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -23,7 +23,7 @@ function App() {
       <main className="main">
         <Routes >
           <Route path="/" element={<h1>home</h1>} ></Route>
-          <Route path="/list" element={<List logged={logged}/>} ></Route>
+          <Route path="/trends" element={<Trends logged={logged}/>} ></Route>
           <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
           <Route path="/detail/:id" element={<Detail logged={logged}/>} ></Route>
         </Routes>  
