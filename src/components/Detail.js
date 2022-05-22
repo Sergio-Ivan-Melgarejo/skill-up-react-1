@@ -51,20 +51,18 @@ const Detail = ({logged}) => {
                                 <h2 className='detail__title'>{movie.title}</h2>
                             </div>
                             <div className='detail__data'>
-                                <div className='detail__data-container'>
+                                <div className='detail__img-container'>
                                     <img className='detail__img' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=''/>
-                                    <div className='detail__info'>
-                                        <h3 className='detail__sub-title'>{movie.original_title}</h3>
-                                        <ul className='detail__tags'>
-                                            {
-                                                movie.genres.map(tag => <li className='detail__tag'>{tag.name}</li>)
-                                            }
-                                        </ul>
-                                        <p className='detail__date'>{movie.release_date}</p>
-                                    </div>
                                 </div>
-                                <div className='detail__data-container'>
-                                     <p className='detail__text'>{movie.overview}</p>           
+                                <div className='detail__info'>
+                                    <h3 className='detail__sub-title'>{movie.original_title}</h3>
+                                    <ul className='detail__tags'>
+                                        {
+                                            movie.genres.map((tag,index) => <li key={`tag-${index}`} className='detail__tag'>{tag.name}</li>)
+                                        }
+                                    </ul>
+                                    <p className='detail__text'>{movie.overview}</p>           
+                                    <p className='detail__date'>{movie.release_date}</p>
                                 </div>
                             </div>
                         </div>

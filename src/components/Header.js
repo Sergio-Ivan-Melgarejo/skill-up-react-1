@@ -86,8 +86,7 @@ function Header ({logged,setLogged}) {
                         </div> 
                 }
             </nav>
-            
-            {
+                {
                     logged
                     ?   <> 
                             <ul className={openConf ? "avatar-conf open" :'avatar-conf'}>
