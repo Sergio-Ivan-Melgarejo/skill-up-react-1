@@ -27,9 +27,7 @@ function App() {
           <Route path="/trends" element={<Trends logged={logged}/>} ></Route>
           <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
           <Route path="/detail/:id" element={<Detail logged={logged}/>} ></Route>
-          <Route path="/search" element={<Search logged={logged}/>} >
-            <Route path=":keyword" element={<h1>asdasd</h1>} ></Route>
-          </Route>
+          <Route path="/search/*" element={<Search logged={logged}/>} ></Route>
         </Routes>  
       </main>
       <Footer />

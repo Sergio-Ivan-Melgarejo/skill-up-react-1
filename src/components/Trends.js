@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import {  Link, Navigate } from 'react-router-dom';
 
 // Styles
-import "../css/list.css";
+import "../css/trends.css";
 
 // Librarys
 import axios from 'axios';
@@ -45,7 +45,7 @@ const Trends = ({logged}) => {
   return (
     <>
       <h2 className='title'>Trends</h2>
-      <div className='list'>
+      <div className='trends'>
         {
           moviesList 
           ? moviesList.map((movie,index)=> <Link to={`/detail/${movie.id}`} key={`moviesList-${index}`} className='movie'>

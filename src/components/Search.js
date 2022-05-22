@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // Style
 import "../css/search.css";
@@ -7,9 +7,13 @@ import "../css/search.css";
 // Librarys
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import Results from './Results';
 const MySwal = withReactContent(Swal);
 
 const Search = () => {
+    const params = useParams();
+    const navigate = useNavigate();
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         const keyword = e.target.search.value;
@@ -31,15 +35,24 @@ const Search = () => {
                 color: "#eee"
             })
         }
+
+        navigate(`${keyword}`)
     }
+
     return (
         <div className='search'>
-            <h2 className='title'>Search</h2>
-            <form onSubmit={handleSubmit} className='search__form'>
-                <input className='search__search' type="search" name='search' placeholder="Movie..." />
-                <input className='search__button' type="submit" value="Search" />
-            </form>
-            <Outlet />
+            <h2 className='title'>{params["*"] ? params["*"] : "Search"}</h2>
+            <div className='search__container'>
+                <form onSubmit={handleSubmit} className='search__form'>
+                    <input className='search__search' type="search" name='search' placeholder="Movie..." />
+                    <input className='search__button' type="submit" value="Search" />
+                </form>
+                {
+                    params["*"]
+                    ? <Results keyword={params["*"]} />
+                    : null
+                }
+            </div>
         </div>
     )
 }

@@ -1,5 +1,13 @@
 .search{
     padding: 0 .5em;
+    min-height: 50%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+.search__container{
+    align-self: center;
 }
 
 .search__form{

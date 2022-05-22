@@ -17,14 +17,13 @@
     border: 2px solid var(--bg-card-color);
     border-radius: 5px;
     overflow: hidden;
-    height: 100%;
+    height: 25em;
 }
 
 .detail__bg{
     display: block;
     width: 100%;
     height: 100%;
-    max-height: 25em;
     object-fit: cover;
     object-position: center center;
 }
