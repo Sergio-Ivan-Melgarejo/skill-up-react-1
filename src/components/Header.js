@@ -48,7 +48,7 @@ function Header ({logged,setLogged}) {
                         </NavLink>
                     </li>
                     <li className='nav-item'>
-                        <NavLink className="nav-link" to="/algo" >
+                        <NavLink className="nav-link" to="/search" >
                         <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"/></svg>
                             <span className='span'>Search</span>
                         </NavLink>
@@ -60,15 +60,15 @@ function Header ({logged,setLogged}) {
                         </NavLink>
                     </li>
                     <li className='nav-item'>
-                        <NavLink className="nav-link" to="/algo" >
+                        <NavLink className="nav-link" to="/genres" >
                             <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
-                            <span className='span'>algo</span>
+                            <span className='span'>Genres</span>
                         </NavLink>
                     </li>
                     <li className='nav-item'>
                         <NavLink className="nav-link" to="/contact" >
                         <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
-                            <span className='span'>Favorite</span>
+                            <span className='span'>Favorites</span>
                         </NavLink>
                     </li>
                 </ul>  

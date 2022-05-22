@@ -12,17 +12,18 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
-
+// &include_video=true
 const API_KEY = "599b1ab5492b9cdab8144e5bf20b6ae5";
 const ENPOINT = "https://api.themoviedb.org/3/";
 const language = "en-US";
 const adult = "false";
+const page = 1;
 
 const Trends = ({logged}) => {
   const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
-    axios(`${ENPOINT}discover/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&include_video=false&page=1&with_watch_monetization_types=flatrate`)
+    axios(`${ENPOINT}discover/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&page=${page}`)
     .then(res =>{ 
       console.log(res);
       if(res.status === 200) setMoviesList(res.data.results);

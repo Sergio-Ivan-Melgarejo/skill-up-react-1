@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 // import "./css/bootstrap.min.css";
 import "./css/app.css";
 import Detail from "./components/Detail";
+import Search from "./components/Search";
 
 function App() {
   // Redirect if user is not logged
@@ -26,6 +27,9 @@ function App() {
           <Route path="/trends" element={<Trends logged={logged}/>} ></Route>
           <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
           <Route path="/detail/:id" element={<Detail logged={logged}/>} ></Route>
+          <Route path="/search" element={<Search logged={logged}/>} >
+            <Route path=":keyword" element={<h1>asdasd</h1>} ></Route>
+          </Route>
         </Routes>  
       </main>
       <Footer />
