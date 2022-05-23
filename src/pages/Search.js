@@ -60,7 +60,17 @@ const Search = () => {
             axios(`${ENPOINT}search/movie?api_key=${API_KEY}&language=${language}&include_adult=${adult}&page=${page}&query=${params["*"]}`)
             .then(res =>{ 
                 console.log(res);
-                if(res.status === 200) setMoviesList(res.data.results);
+                if(res.status === 200){
+                    setMoviesList(res.data.results);
+                    if(res.data.results.length === 0){
+                        MySwal.fire({
+                            html: "No results found",
+                            icon: 'error',
+                            background: "#161d2f",
+                            color: "#eee"
+                        })
+                    }
+                }
             })
             .catch(error =>{
                 console.log(error)
