@@ -9,27 +9,27 @@ import Login from "./pages/Login";
 import Trends from "./pages/Trends";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
+import Favorites from "./pages/Favorites";
 
 // Style
-// import "./css/bootstrap.min.css";
 import "./css/app.css";
 
 function App() {
   // Redirect if user is not logged
   const [logged, setLogged] = useState(localStorage.getItem("token") || false);
-  
-  let favMovies = localStorage.getItem("favs");
-  if(favMovies === null){
-    favMovies = []
-  } else{
-    favMovies = JSON.parse(favMovies);
-  }
 
   const addOrDemoveFromFavorite = (object) =>{
-    console.log(object,"data");
+    // obtiene data
+    let favMovies = localStorage.getItem("favs");
+    if(favMovies === null){
+      favMovies = []
+    } else{
+      favMovies = JSON.parse(favMovies);
+    }
 
+    // comprueba data
     const TheMovieHasAlreadyBeenSaved = favMovies.find(movie => movie.id === object.id);
-console.log(TheMovieHasAlreadyBeenSaved)
+    
     if(TheMovieHasAlreadyBeenSaved === undefined){
       // add movie
       favMovies.push(object);
@@ -52,6 +52,7 @@ console.log(TheMovieHasAlreadyBeenSaved)
           <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
           <Route path="/detail/:id" element={<Detail logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
           <Route path="/search/*" element={<Search logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
+          <Route path="/favorites" element={<Favorites logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
         </Routes>  
       </main>
       <Footer />

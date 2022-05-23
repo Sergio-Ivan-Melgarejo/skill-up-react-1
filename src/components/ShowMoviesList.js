@@ -21,11 +21,11 @@ const ShowMoviesList = ({data,addOrDemoveFromFavorite}) => {
                                 <ButtonFavorite
                                     addOrDemoveFromFavorite={addOrDemoveFromFavorite}
                                     data={{
-                                        img: `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`,
+                                        poster_path: movie.poster_path,
                                         id: movie.id,
                                         title: movie.title,
-                                        date: movie.release_date,
-                                        review: movie.overview
+                                        release_date: movie.release_date,
+                                        overview: movie.overview
                                     }} 
                                 />
                             </div>)
