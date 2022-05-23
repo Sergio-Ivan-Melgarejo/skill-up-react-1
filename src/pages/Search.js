@@ -1,13 +1,15 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+// Components
+import Results from '../components/Results';
+
 // Style
 import "../css/search.css";
 
 // Librarys
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import Results from './Results';
 const MySwal = withReactContent(Swal);
 
 const Search = () => {

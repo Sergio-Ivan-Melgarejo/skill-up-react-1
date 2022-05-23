@@ -1,5 +1,4 @@
 .search{
-    padding: 0 .5em;
     min-height: 50%;
     display: grid;
     grid-template-columns: 1fr;

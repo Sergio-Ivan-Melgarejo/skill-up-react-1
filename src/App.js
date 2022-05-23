@@ -3,16 +3,16 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 // Components
-import Login from "./components/Login";
-import Trends from "./components/Trends";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Trends from "./pages/Trends";
+import Detail from "./pages/Detail";
+import Search from "./pages/Search";
 
 // Style
 // import "./css/bootstrap.min.css";
 import "./css/app.css";
-import Detail from "./components/Detail";
-import Search from "./components/Search";
 
 function App() {
   // Redirect if user is not logged

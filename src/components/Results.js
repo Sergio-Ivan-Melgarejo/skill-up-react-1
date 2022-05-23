@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 // Style
 import "../css/results.css";
@@ -7,7 +8,6 @@ import "../css/results.css";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { Link } from 'react-router-dom';
 const MySwal = withReactContent(Swal);
 
 // &include_video=true
@@ -20,9 +20,8 @@ const page = 1;
 const Results = ({keyword}) => {
     const [moviesList, setMoviesList] = useState(false);
 
-
     useEffect(() => {
-        axios(`${ENPOINT}search/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&page=${page}&query=${keyword}`)
+        axios(`${ENPOINT}search/movie?api_key=${API_KEY}&language=${language}&include_adult=${adult}&page=${page}&query=${keyword}`)
         .then(res =>{ 
             console.log(res);
             if(res.status === 200) setMoviesList(res.data.results);
