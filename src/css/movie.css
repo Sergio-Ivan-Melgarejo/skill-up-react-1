@@ -1,30 +1,26 @@
-.trends{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(12em,1fr));
-    gap: .5em;
+.movie-container{
+    position: relative;
     padding: .5em;
-    justify-content: center;
+    border-radius: 5px;
+    transition: background-color .3s ease-in;
+    max-width: 250px;
+    width: 100%;
+    justify-self: center;
+}
+
+.movie-container:hover{
+    background-color: #00000050;
 }
 
 .movie{
-    max-width: 250px;
     width: 100%;
-    padding: .5em;
-    border-radius: 5px;
-    cursor: pointer;
-    justify-self: center;
     text-decoration: none;
     color: var(--text-seconday-color);
 }
 
-.movie:hover{
-    background-color: #00000030;
-}
-
-.movie__container{
+.movie__img-container{
     border-radius: 5px;
     width: 100%;
-    height: 300px;
     position: relative;
     overflow: hidden;
 }
@@ -57,7 +53,7 @@
     line-height: 1em;
 }
 
-.movie:hover > .movie__container .movie__description{
+.movie-container:hover >  .movie .movie__img-container .movie__description{
     transform: translateY(0)
 }
 

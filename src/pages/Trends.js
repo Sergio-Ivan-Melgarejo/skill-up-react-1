@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 // Components
-import {  Link, Navigate } from 'react-router-dom';
-
-// Styles
-import "../css/trends.css";
+import { Navigate } from 'react-router-dom';
 
 // Librarys
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import ShowMoviesList from '../components/ShowMoviesList';
 const MySwal = withReactContent(Swal);
 
 // &include_video=true
@@ -45,22 +43,7 @@ const Trends = ({logged}) => {
   return (
     <>
       <h2 className='title'>Trends</h2>
-      <div className='trends'>
-        {
-          moviesList 
-          ? moviesList.map((movie,index)=> <Link to={`/detail/${movie.id}`} key={`moviesList-${index}`} className='movie'>
-              <div className='movie__container'>
-                <img className='movie__img' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=''/>
-                <p className='movie__description'>{movie.overview.length > 90 ? `${movie.overview.slice(0,90)}...` : movie.overview}</p>
-              </div>
-              <div className='movie__tags'>
-                <span className='movie__date'>{movie.release_date}</span>
-              </div>
-              <h3 className='movie__title'>{movie.title.length > 30 ? `${movie.title.slice(0,30)}...` : movie.title} </h3>
-            </Link>)
-          : "Loading"
-        }
-      </div>
+      <ShowMoviesList data={moviesList} />
     </>
   )
 }

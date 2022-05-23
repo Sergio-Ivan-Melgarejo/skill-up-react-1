@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // Components
-import Results from '../components/Results';
+import ShowMoviesList from '../components/ShowMoviesList';
 
 // Style
 import "../css/search.css";
 
 // Librarys
+import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
+
+
+// &include_video=true
+const API_KEY = "599b1ab5492b9cdab8144e5bf20b6ae5";
+const ENPOINT = "https://api.themoviedb.org/3/";
+const language = "en-US";
+const adult = "false";
+const page = 1;
 
 const Search = () => {
     const params = useParams();
@@ -27,6 +36,7 @@ const Search = () => {
                 background: "#161d2f",
                 color: "#eee"
             })
+            return
         }
 
         if(keyword.length < 3){
@@ -36,10 +46,39 @@ const Search = () => {
                 background: "#161d2f",
                 color: "#eee"
             })
+            return
         }
 
         navigate(`${keyword}`)
     }
+    
+    // para buscar si hay params
+    const [moviesList, setMoviesList] = useState(false);
+
+    useEffect(() => {
+        if(params["*"].length > 2){
+            axios(`${ENPOINT}search/movie?api_key=${API_KEY}&language=${language}&include_adult=${adult}&page=${page}&query=${params["*"]}`)
+            .then(res =>{ 
+                console.log(res);
+                if(res.status === 200) setMoviesList(res.data.results);
+            })
+            .catch(error =>{
+                console.log(error)
+                MySwal.fire({
+                    title: <strong>Error 404</strong>,
+                    html: <i>{error.message}</i>,
+                    icon: 'error',
+                    background: "#161d2f",
+                    color: "#eee"
+                })
+            })
+        }
+        // redigige si por url busca menos de 2 caracter
+        if(params["*"].length < 3 && params["*"].length !== 0){
+            navigate("/search")
+        }
+        console.log(params["*"].length)
+    }, [setMoviesList,params,navigate])
 
     return (
         <div className='search'>
@@ -51,7 +90,7 @@ const Search = () => {
                 </form>
                 {
                     params["*"]
-                    ? <Results keyword={params["*"]} />
+                    ? <ShowMoviesList data={moviesList} />
                     : null
                 }
             </div>
