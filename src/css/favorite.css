@@ -1,0 +1,10 @@
+.favorites__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favorites .btn{
+    margin: 1em;
+    padding: .8em 1.5em;
+}

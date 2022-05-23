@@ -31,6 +31,8 @@
 .header .nav-item .span{
     bottom: -.5em;
     transform: translate(-50%,4em);
+    min-width: 6em;
+    text-align: center;
 }
 
 .header .nav-item:hover > .nav-link .span{

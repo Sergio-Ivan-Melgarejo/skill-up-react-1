@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 // Components
 import { Navigate } from 'react-router-dom';
+
+// Context
+import LanguageContext from '../context/LanguageContext';
 
 // Librarys
 import axios from 'axios';
@@ -10,24 +13,27 @@ import withReactContent from 'sweetalert2-react-content';
 import ShowMoviesList from '../components/ShowMoviesList';
 const MySwal = withReactContent(Swal);
 
-// &include_video=true
 const API_KEY = "599b1ab5492b9cdab8144e5bf20b6ae5";
 const ENPOINT = "https://api.themoviedb.org/3/";
-const language = "en-US";
 const adult = "false";
 const page = 1;
 
-const Trends = ({logged, addOrDemoveFromFavorite}) => {
+const Trends = ({logged}) => {
+  const {texts} = useContext(LanguageContext);
   const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
-    axios(`${ENPOINT}discover/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&page=${page}`)
+    axios(`${ENPOINT}trending/all/day?api_key=${API_KEY}&language=${texts.lang}&sort_by=popularity.desc&include_adult=${adult}&page=${page}`)
     .then(res =>{ 
-      console.log(res);
-      if(res.status === 200) setMoviesList(res.data.results);
+      // console.log(res);
+      if(res.status === 200){
+        // filtro peliculas
+        let result = res.data.results.filter(movie =>movie.media_type === "movie");
+        setMoviesList(result);
+      }
     })
     .catch(error =>{
-      console.log(error)
+      // console.log(error)
       MySwal.fire({
         title: <strong>Error 404</strong>,
         html: <i>{error.message}</i>,
@@ -42,8 +48,8 @@ const Trends = ({logged, addOrDemoveFromFavorite}) => {
 
   return (
     <>
-      <h2 className='title'>Trends</h2>
-      <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
+      <h2 className='title'>{texts.trends.title}</h2>
+      <ShowMoviesList data={moviesList}/>
     </>
   )
 }

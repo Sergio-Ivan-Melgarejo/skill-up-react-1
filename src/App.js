@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 // Library
 import { Route, Routes } from "react-router-dom";
 
@@ -10,52 +10,46 @@ import Trends from "./pages/Trends";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
 
 // Style
 import "./css/app.css";
 
+// Context
+import { LanguageProvider } from "./context/LanguageContext";
+
+// Redux
+import { useDispatch, useSelector } from 'react-redux'
+import { getAll } from "./actions/favoriteActions"
+
 function App() {
   // Redirect if user is not logged
   const [logged, setLogged] = useState(localStorage.getItem("token") || false);
+  const state = useSelector(state=> state); 
+  const dispatch = useDispatch();
 
-  const addOrDemoveFromFavorite = (object) =>{
-    // obtiene data
-    let favMovies = localStorage.getItem("favs");
-    if(favMovies === null){
-      favMovies = []
-    } else{
-      favMovies = JSON.parse(favMovies);
-    }
-
-    // comprueba data
-    const TheMovieHasAlreadyBeenSaved = favMovies.find(movie => movie.id === object.id);
-    
-    if(TheMovieHasAlreadyBeenSaved === undefined){
-      // add movie
-      favMovies.push(object);
-      localStorage.setItem("favs",JSON.stringify(favMovies));
-    }
-    else{
-      // remove movie
-      favMovies = favMovies.filter(movie => movie.id !== object.id);
-      localStorage.setItem("favs",JSON.stringify(favMovies));
-    }
-  } 
+  useEffect(() => {
+    dispatch(getAll())
+  }, [])
 
   return (
-    <div className="app container-fluid container-xxl p-0">
-      <Header logged={logged} setLogged={setLogged}/>
-      <main className="main">
-        <Routes >
-          <Route path="/" element={<h1>home</h1>} ></Route>
-          <Route path="/trends" element={<Trends logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />} ></Route>
-          <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
-          <Route path="/detail/:id" element={<Detail logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
-          <Route path="/search/*" element={<Search logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
-          <Route path="/favorites" element={<Favorites logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
-        </Routes>  
-      </main>
-      <Footer />
+    <div className="app">
+      <LanguageProvider>
+        <Header logged={logged} setLogged={setLogged}/>
+        <main className="main">
+          <Routes >
+            <Route path="/" element={<Home logged={logged}/>} ></Route>
+            <Route path="/trends" element={<Trends logged={logged}/>} ></Route>
+            <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
+            <Route path="/detail/:id" element={<Detail logged={logged}/>}></Route>
+            <Route path="/search/*" element={<Search logged={logged}/>}></Route>
+            <Route path="/favorites" element={<Favorites logged={logged}/>}></Route>
+            <Route path="*" element={<Error logged={logged} />}></Route>
+          </Routes>  
+        </main>
+        <Footer />
+      </LanguageProvider>
     </div>
   );
 }

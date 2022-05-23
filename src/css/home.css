@@ -1,0 +1,124 @@
+.home{
+    min-height: 100vh;
+    margin: auto;
+    padding: 0 .5em;
+}
+
+.home__bg-container{
+    position: relative;
+    border-radius: 5px;
+    height: calc(90vh - .5em);
+    min-height: 30em;
+    border: 2px solid var(--bg-card-color);
+    background-color: var(--bg-card-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+@media screen and (min-width:726px){
+    .home{
+        padding: .5em 0;
+    }
+
+    .home__bg-container{
+        height: calc(100vh - 1em);
+    }
+}
+
+.home__img-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.home__img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.home__shadow{
+    background: linear-gradient(0deg, #000,#00000060,#000);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.home__title{
+    color: var(--primary-color);
+    margin: 0;
+    font-size: clamp(2em,3vw,3em);
+    position: absolute;
+    top: .5em;
+    left: .5em;
+}
+
+.home__text-container{
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home__text{
+    font-weight: bolder;
+}
+
+.home__line-text{
+    display: block;
+}
+
+.home__line-text:nth-child(1){
+    font-size: clamp(3em,4vw,4em);
+    color: var(--text-primary-color);
+}
+
+.home__line-text:nth-child(2){
+    font-size: clamp(2.5em,3vw,3.5em);
+    color: var(--text-second-color);
+}
+
+.home__msg{
+    position: relative;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    max-width: 500px;
+    border-radius: 5px;
+    margin: 0;
+    width: 80%;
+}
+
+.home__link{
+    text-decoration: none;
+    margin: 0.5em 0;
+}
+
+@media screen and (min-width:726px){
+    .home__msg{
+        transform: translate(0,0%);
+    }
+}
+
+.home .language-btn{
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    color: var(--primary-color);
+    font-size: 1em;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+}

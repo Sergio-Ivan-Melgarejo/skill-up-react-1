@@ -3,6 +3,7 @@
     margin: auto;
     word-spacing: .2em;
     letter-spacing: .1em;
+    min-height: 100vh;
 }
 
 .detail__container{
@@ -41,9 +42,10 @@
 .detail__title{
     font-size: clamp(1.5em,7vw,3em);
     position: absolute;
-    top: 1em;
-    left: 1em;
+    top: 0;
+    left: 0;
     margin: 0;
+    padding: 1em;
     text-shadow: 1px 1px var(--bg-color),-1px -1px var(--bg-color);
 }
 
@@ -83,6 +85,7 @@
     padding: 1em;
     background-color: var(--bg-card-color);
     border-radius: 5px;
+    min-width: 300px;
 }
 
 .detail__sub-title{
