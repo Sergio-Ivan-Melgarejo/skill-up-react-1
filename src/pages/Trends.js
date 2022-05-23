@@ -21,13 +21,17 @@ const Trends = ({logged, addOrDemoveFromFavorite}) => {
   const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
-    axios(`${ENPOINT}discover/movie?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&page=${page}`)
+    axios(`${ENPOINT}trending/all/day?api_key=${API_KEY}&language=${language}&sort_by=popularity.desc&include_adult=${adult}&page=${page}`)
     .then(res =>{ 
       console.log(res);
-      if(res.status === 200) setMoviesList(res.data.results);
+      if(res.status === 200){
+        // filtro peliculas
+        let result = res.data.results.filter(movie =>movie.media_type === "movie");
+        setMoviesList(result);
+      }
     })
     .catch(error =>{
-      console.log(error)
+      // console.log(error)
       MySwal.fire({
         title: <strong>Error 404</strong>,
         html: <i>{error.message}</i>,

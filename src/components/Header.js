@@ -60,12 +60,6 @@ function Header ({logged,setLogged}) {
                         </NavLink>
                     </li>
                     <li className='nav-item'>
-                        <NavLink className="nav-link" to="/genres" >
-                            <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
-                            <span className='span'>Genres</span>
-                        </NavLink>
-                    </li>
-                    <li className='nav-item'>
                         <NavLink className="nav-link" to="/favorites" >
                         <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
                             <span className='span'>Favorites</span>

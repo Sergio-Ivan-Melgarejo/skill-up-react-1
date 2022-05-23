@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom';
+
+// Components
 import ShowMoviesList from '../components/ShowMoviesList';
 
 const Favorites = ({logged,addOrDemoveFromFavorite}) => {

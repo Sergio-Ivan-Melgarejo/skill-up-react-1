@@ -27,7 +27,7 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        const keyword = e.target.search.value;
+        const keyword = e.target.search.value.trim();
 
         if(keyword === "" || keyword === undefined){
             MySwal.fire({
