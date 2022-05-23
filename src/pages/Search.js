@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 // Components
 import ShowMoviesList from '../components/ShowMoviesList';
@@ -21,7 +21,7 @@ const language = "en-US";
 const adult = "false";
 const page = 1;
 
-const Search = () => {
+const Search = ({logged}) => {
     const params = useParams();
     const navigate = useNavigate();
 
@@ -89,6 +89,8 @@ const Search = () => {
         }
         console.log(params["*"].length)
     }, [setMoviesList,params,navigate])
+
+    if(!logged) return <Navigate to="/login" />
 
     return (
         <div className='search'>

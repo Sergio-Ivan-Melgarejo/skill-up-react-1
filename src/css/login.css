@@ -4,30 +4,35 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 1.2em;
 }
 
 .login__title{
     max-width: 500px;
-    width: 100%;
-    padding: 0 .5em;
+    width: 90%;
     font-size: 2em;
     margin: 0;
-    color: var(--text-primary-color);
+    color: var(--primary-color);
+    background-color: var(--bg-card-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: .5em .5em .25em;
 }
 
 .login__form{
     max-width: 500px;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     padding: 1em;
     gap: .5em;
+    background-color: var(--bg-card-color);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .btn{
     padding: .8em;
-    background-color: var(--bg-card-color);
+    background-color: var(--second-color);
     border: none;
     font-weight: bolder;
     color: var(--text-primary-color);
