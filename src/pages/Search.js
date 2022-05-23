@@ -21,7 +21,7 @@ const language = "en-US";
 const adult = "false";
 const page = 1;
 
-const Search = ({logged}) => {
+const Search = ({logged,addOrDemoveFromFavorite}) => {
     const params = useParams();
     const navigate = useNavigate();
 
@@ -102,7 +102,7 @@ const Search = ({logged}) => {
                 </form>
                 {
                     params["*"]
-                    ? <ShowMoviesList data={moviesList} />
+                    ? <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
                     : null
                 }
             </div>

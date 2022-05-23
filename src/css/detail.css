@@ -66,6 +66,7 @@
     min-width: 12em;
     max-width: 17em;
     overflow: hidden;
+    position: relative;
 }
 
 .detail__img{

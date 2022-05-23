@@ -7,7 +7,7 @@ import Movie from './Movie'
 // Style
 import "../css/showMoviesList.css";
 
-const ShowMoviesList = ({data}) => {
+const ShowMoviesList = ({data,addOrDemoveFromFavorite}) => {
     return (
     <div className='showMoviesList'>
         {
@@ -16,9 +16,18 @@ const ShowMoviesList = ({data}) => {
             :   <>
                     {   
                         data.length > 0 
-                        ?   data.map((movie)=> <div className='movie-container'>
+                        ?   data.map((movie)=> <div key={`search-${movie.id}`} className='movie-container'>
                                 <Movie data={movie} />
-                                <ButtonFavorite id={movie.id} />
+                                <ButtonFavorite
+                                    addOrDemoveFromFavorite={addOrDemoveFromFavorite}
+                                    data={{
+                                        img: `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`,
+                                        id: movie.id,
+                                        title: movie.title,
+                                        date: movie.release_date,
+                                        review: movie.overview
+                                    }} 
+                                />
                             </div>)
                         :   "No results found"
                     }

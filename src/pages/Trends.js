@@ -17,7 +17,7 @@ const language = "en-US";
 const adult = "false";
 const page = 1;
 
-const Trends = ({logged}) => {
+const Trends = ({logged, addOrDemoveFromFavorite}) => {
   const [moviesList, setMoviesList] = useState(false)
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Trends = ({logged}) => {
   return (
     <>
       <h2 className='title'>Trends</h2>
-      <ShowMoviesList data={moviesList} />
+      <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
     </>
   )
 }

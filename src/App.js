@@ -18,16 +18,40 @@ function App() {
   // Redirect if user is not logged
   const [logged, setLogged] = useState(localStorage.getItem("token") || false);
   
+  let favMovies = localStorage.getItem("favs");
+  if(favMovies === null){
+    favMovies = []
+  } else{
+    favMovies = JSON.parse(favMovies);
+  }
+
+  const addOrDemoveFromFavorite = (object) =>{
+    console.log(object,"data");
+
+    const TheMovieHasAlreadyBeenSaved = favMovies.find(movie => movie.id === object.id);
+console.log(TheMovieHasAlreadyBeenSaved)
+    if(TheMovieHasAlreadyBeenSaved === undefined){
+      // add movie
+      favMovies.push(object);
+      localStorage.setItem("favs",JSON.stringify(favMovies));
+    }
+    else{
+      // remove movie
+      favMovies = favMovies.filter(movie => movie.id !== object.id);
+      localStorage.setItem("favs",JSON.stringify(favMovies));
+    }
+  } 
+
   return (
     <div className="app container-fluid container-xxl p-0">
       <Header logged={logged} setLogged={setLogged}/>
       <main className="main">
         <Routes >
           <Route path="/" element={<h1>home</h1>} ></Route>
-          <Route path="/trends" element={<Trends logged={logged}/>} ></Route>
+          <Route path="/trends" element={<Trends logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />} ></Route>
           <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
-          <Route path="/detail/:id" element={<Detail logged={logged}/>} ></Route>
-          <Route path="/search/*" element={<Search logged={logged}/>} ></Route>
+          <Route path="/detail/:id" element={<Detail logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
+          <Route path="/search/*" element={<Search logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
         </Routes>  
       </main>
       <Footer />
