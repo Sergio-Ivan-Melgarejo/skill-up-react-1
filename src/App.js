@@ -10,6 +10,7 @@ import Trends from "./pages/Trends";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
+import Home from "./pages/Home";
 
 // Style
 import "./css/app.css";
@@ -47,7 +48,7 @@ function App() {
       <Header logged={logged} setLogged={setLogged}/>
       <main className="main">
         <Routes >
-          <Route path="/" element={<h1>home</h1>} ></Route>
+          <Route path="/" element={<Home logged={logged}/>} ></Route>
           <Route path="/trends" element={<Trends logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />} ></Route>
           <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
           <Route path="/detail/:id" element={<Detail logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>

@@ -16,7 +16,7 @@ const Favorites = ({logged,addOrDemoveFromFavorite}) => {
 
     useEffect(() => {
         setMoviesList(favMovies);
-    }, [addOrDemoveFromFavorite])
+    }, [])
     
     if(!logged) return <Navigate to="/login" />
 
@@ -30,7 +30,7 @@ const Favorites = ({logged,addOrDemoveFromFavorite}) => {
                         {   
                             moviesList.length !== 0
                             ?   <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
-                            :   "no hay nada"
+                            :   <p className='nothing'>There is nothing here yet</p>
                         }
                         </>
                     : null

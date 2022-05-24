@@ -6,13 +6,14 @@ import Movie from './Movie'
 
 // Style
 import "../css/showMoviesList.css";
+import Loader from './Loader';
 
 const ShowMoviesList = ({data,addOrDemoveFromFavorite}) => {
     return (
     <div className='showMoviesList'>
         {
             !data
-            ?   "loading"
+            ?   <Loader />
             :   <>
                     {   
                         data.length > 0 

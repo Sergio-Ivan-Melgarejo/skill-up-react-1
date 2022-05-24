@@ -9,6 +9,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import ButtonFavorite from '../components/ButtonFavorite';
+import Loader from '../components/Loader';
 const MySwal = withReactContent(Swal);
 
 const API_KEY = "599b1ab5492b9cdab8144e5bf20b6ae5";
@@ -77,7 +78,7 @@ const Detail = ({logged,addOrDemoveFromFavorite}) => {
                             </div>
                         </div>
                     </>
-                :    "loading"
+                :   <Loader />
             }
         </div>
     )

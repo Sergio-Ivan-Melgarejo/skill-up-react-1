@@ -134,3 +134,25 @@ ul{
         top: 0px;
     }
 }
+
+.btn{
+    padding: .8em;
+    background-color: var(--second-color);
+    border: none;
+    font-weight: bolder;
+    color: var(--bg-card-color);
+    cursor: pointer;
+    border-radius: 2px;
+    outline-color: var(--primary-color);
+    transition: background-color .3s ease-in, color .3s ease-in;
+}
+
+.btn:hover{
+    background-color: var(--primary-color);
+    color: var(--text-primary-color);
+}
+
+.nothing{
+    padding: 1em;
+    color: var(--text-second-color);
+}

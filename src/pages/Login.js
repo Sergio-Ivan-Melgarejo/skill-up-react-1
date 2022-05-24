@@ -7,11 +7,14 @@ import { Navigate, useNavigate } from 'react-router-dom';
 // Styles
 import "../css/login.css";
 
+import img from "../img/bg.jpg"; 
+
 // Librarys
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
+
 
 const Login = ({logged,setLogged}) => {
     const navigate = useNavigate();
@@ -91,14 +94,27 @@ const Login = ({logged,setLogged}) => {
 
     return ( 
         <div className='login'>
-            <h2 className='login__title'>Login</h2>
-            <form className='login__form' onSubmit={handleSubmit}>
-                <label className='label' htmlFor='email'>Correo electronico</label>
-                <input className='input' id='email' type="email" name="email" autoComplete='current-email' />
-                <label className='label' htmlFor='password'>Contraseña</label>
-                <input className='input' id='password' type="password" name="password" autoComplete='current-password' />
-                <input className='btn' type="submit" value="login" disabled={false} />
-            </form>
+            
+            <div className='login__bg-container'>
+                <div className='login__img-container'>
+                    <img className='login__img' src={img} alt=''/>
+                    <div className='login__shadow'></div>
+                </div>
+
+                <h1 className='login__logo'>Alkeflix</h1>
+
+                <h2 className='login__title'>Sign In</h2>
+                <form className='login__form' onSubmit={handleSubmit}>
+                    <label className='label' htmlFor='email'>Email</label>
+                    <input className='input' id='email' type="email" name="email" autoComplete='current-email' placeholder='challenge@alkemy.org'/>
+                    <label className='label' htmlFor='password'>password</label>
+                    <input className='input' id='password' type="password" name="password" autoComplete='current-password' placeholder='react' />
+                    <input className='btn' type="submit" value="Sign In" disabled={false} />
+                    <p className='toDelete'>Email: challenge@alkemy.org</p>
+                    <p className='toDelete'>password: react</p>
+                </form>
+            </div>
+
         </div>
     )
 }

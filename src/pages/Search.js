@@ -59,7 +59,7 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
         if(params["*"].length > 2){
             axios(`${ENPOINT}search/movie?api_key=${API_KEY}&language=${language}&include_adult=${adult}&page=${page}&query=${params["*"]}`)
             .then(res =>{ 
-                console.log(res);
+                // console.log(res);
                 if(res.status === 200){
                     setMoviesList(res.data.results);
                     if(res.data.results.length === 0){
@@ -73,7 +73,7 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
                 }
             })
             .catch(error =>{
-                console.log(error)
+                // console.log(error)
                 MySwal.fire({
                     title: <strong>Error 404</strong>,
                     html: <i>{error.message}</i>,
