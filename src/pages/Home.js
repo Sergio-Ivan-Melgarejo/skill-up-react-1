@@ -40,9 +40,10 @@ console.log(texts)
                         {texts.home.mgs3} 
                         <Link to="/favorites" className="home__link btn">{texts.home.btn3}</Link>
                       </p>
-                  :   <p className='home__msg'>Ready to watch?
-                        <Link to="/login" className='home__link btn'>Sign in</Link> 
-                        to be able to search and see more.
+                  :   <p className='home__msg'>
+                        {texts.home.mgs4} 
+                        <Link to="/login" className='home__link btn'>{texts.home.btn4} </Link> 
+                        {texts.home.mgs5} 
                       </p>  
                 }
 

@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom';
 
 // Components
 import ShowMoviesList from '../components/ShowMoviesList';
 
+// Context
+import LanguageContext from '../context/LanguageContext';
+
 const Favorites = ({logged,addOrDemoveFromFavorite}) => {
+    const {texts} = useContext(LanguageContext);
     const [moviesList, setMoviesList] = useState(false)
     
     let favMovies = localStorage.getItem("favs");
@@ -22,7 +26,7 @@ const Favorites = ({logged,addOrDemoveFromFavorite}) => {
 
     return (
         <div className='favorites'>
-            <h2 className='title'>Favorites</h2>
+            <h2 className='title'>{texts.favorite.title}</h2>
             <div className='search__container'>
                 {
                     moviesList
@@ -31,7 +35,7 @@ const Favorites = ({logged,addOrDemoveFromFavorite}) => {
                             moviesList.length !== 0
                             ?   <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
                             :   <>
-                                    <p className='nothing'>There is nothing here yet</p>
+                                    <p className='nothing'>{texts.favorite.line1}</p>
                                     <div className='detalle'>
                                         <div className='detalle__box'></div>
                                         <div className='detalle__box'></div>

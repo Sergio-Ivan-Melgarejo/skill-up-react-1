@@ -12,12 +12,53 @@ const translations = {
           mgs1:"Bienvenida usuario, busca en la",
           mgs2:"o ver la tendencia actual en la",
           mgs3:"y guarda lo que quieras en",
-          mgs4:"",
+          mgs4:"¿Listo para mirar?",
+          mgs5:"para poder buscar y ver más.",
           btn1:"sección de búsqueda",
           btn2:"sección de tendencias",
           btn3:"sección de favoritos",
-          btn4:""
-      }
+          btn4:"Registrate"
+        },
+        header:{
+            nav1:"Inicio",
+            nav2:"Busqueda",
+            nav3:"Tendencias",
+            nav4:"Favoritos",
+            nav5:"Ingresar",
+            subNav:{
+                btn1:"Cerrar seccion"
+            },
+            msg1:'Esta seguro?',
+            msg2:"Si"
+        },
+        footer:"Portafolio",
+        trends:{
+            title:"Tendencias"
+        },
+        search:{
+            title:"Busquedas",
+            placeholder:"Pelicula...",
+            btn:"Buscar",
+            msg1:"No se han encontrado resultados",
+            msg2:"Debes poner una palabra",
+            msg3:"Debes poner una palabra con más de 3 caracteres"
+        },
+        favorite:{
+            title:"Favorite",
+            line1:"No hay nada aqui todavia"
+        },
+        login:{
+            title:"Iniciar sesión",
+            label1:"Correo Electronico",
+            label2:"Contraseña",
+            msg1:"Los campos no pueden estar vacíos",
+            msg2:"Debes escribir un correo electrónico válido",
+            msg3:"Credenciales no válidas",
+            msg4:"Ingresado correctamente"
+        },
+        extra:{
+            line1:"No hay resultado"
+        }
     },
     "en-US": {
         lang:"en-US",
@@ -28,11 +69,52 @@ const translations = {
             mgs1:"Welcome user, search in the",
             mgs2:"or see the current trend in the",
             mgs3:"and save what you want in",
-            mgs4:"",
+            mgs4:"Ready to watch?",
+            mgs5:"to be able to search and see more.",
             btn1:"search section",
             btn2:"trends section",
             btn3:"favorites section",
-            btn4:""
+            btn4:"Sign in"
+        },
+        header:{
+            nav1:"Home",
+            nav2:"Search",
+            nav3:"Trends",
+            nav4:"Favorites",
+            nav5:"Sing in",
+            subNav:{
+                btn1:"Sing out"
+            },
+            msg1:'Are you sure?',
+            msg2:"Yes"
+        },
+        footer:"Portfolio",
+        trends:{
+            title:"Trends"
+        },
+        search:{
+            title:"Search",
+            placeholder:"Movie...",
+            btn:"Search",
+            msg1:"No results found",
+            msg2:"You must put a word",
+            msg3:"You must put a word with more than 3 characters"
+        },
+        favorite:{
+            title:"Favorites",
+            line1:"There is nothing here yet"
+        },
+        login:{
+            title:"Sign In",
+            label1:"Email",
+            label2:"Password",
+            msg1:"The fields cannot be empty",
+            msg2:"You must write a valid email",
+            msg3:"Invalid Credentials",
+            msg4:"Entered correctly"
+        },
+        extra:{
+            line1:"No results found"
         }
     },
 };

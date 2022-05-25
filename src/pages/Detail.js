@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom';
 
 // Styles
 import "../css/detail.css";
+
+// Context
+import LanguageContext from '../context/LanguageContext';
 
 // Librarys
 import axios from 'axios';
@@ -14,15 +17,15 @@ const MySwal = withReactContent(Swal);
 
 const API_KEY = "599b1ab5492b9cdab8144e5bf20b6ae5";
 const ENPOINT = "https://api.themoviedb.org/3/";
-const language = "en-US";
 
 const Detail = ({logged,addOrDemoveFromFavorite}) => {
+    const {texts} = useContext(LanguageContext);
     const params = useParams();
     const [movie, setMovie] = useState(false);
     
     useEffect(() => {
         const {id} = params;
-        axios(`${ENPOINT}movie/${id}?api_key=${API_KEY}&language=${language}`)
+        axios(`${ENPOINT}movie/${id}?api_key=${API_KEY}&language=${texts.lang}`)
         .then(res =>{ 
         console.log(res);
         if(res.status === 200) setMovie(res.data);

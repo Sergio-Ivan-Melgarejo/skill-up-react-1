@@ -172,11 +172,11 @@ ul{
 
 .detalle__box{
     background-color: var(--bg-card-color);
-    border-radius: 5px;
+    border-radius: 2em;
 }
 
-.detalle__box:nth-child(1){height: 3em; width: 100%;}
-.detalle__box:nth-child(2){height: 1em; width: 90%;}
-.detalle__box:nth-child(3){height: 1em; width: 80%;}
-.detalle__box:nth-child(4){height: 1em; width: 70%;}
-.detalle__box:nth-child(5){height: 1em; width: 60%;}
+.detalle__box:nth-child(1){height: 2em; width: 90%;}
+.detalle__box:nth-child(2){height: 1em; width: 80%;}
+.detalle__box:nth-child(3){height: 1em; width: 70%;}
+.detalle__box:nth-child(4){height: 1em; width: 60%;}
+.detalle__box:nth-child(5){height: 1em; width: 50%;}

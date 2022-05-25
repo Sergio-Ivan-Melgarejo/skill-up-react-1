@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 // Components
 import ButtonFavorite from './ButtonFavorite'
@@ -8,7 +8,11 @@ import Movie from './Movie'
 import "../css/showMoviesList.css";
 import Loader from './Loader';
 
+// Style
+import LanguageContext from '../context/LanguageContext';
+
 const ShowMoviesList = ({data,addOrDemoveFromFavorite}) => {
+    const {texts} = useContext(LanguageContext);
     return (
     <div className='showMoviesList'>
         {
@@ -30,7 +34,16 @@ const ShowMoviesList = ({data,addOrDemoveFromFavorite}) => {
                                     }} 
                                 />
                             </div>)
-                        :   "No results found"
+                        :   <>
+                                <p className='nothing'>{texts.extra.line1}</p>
+                                <div className='detalle'>
+                                    <div className='detalle__box'></div>
+                                    <div className='detalle__box'></div>
+                                    <div className='detalle__box'></div>
+                                    <div className='detalle__box'></div>
+                                    <div className='detalle__box'></div>
+                                </div>
+                            </>
                     }
                 </>
         }
