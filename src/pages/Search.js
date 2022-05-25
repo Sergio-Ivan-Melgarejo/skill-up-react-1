@@ -102,8 +102,14 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
                 </form>
                 {
                     params["*"]
-                    ? <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
-                    : null
+                    ?   <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
+                    :   <div className='detalle'>
+                            <div className='detalle__box'></div>
+                            <div className='detalle__box'></div>
+                            <div className='detalle__box'></div>
+                            <div className='detalle__box'></div>
+                            <div className='detalle__box'></div>
+                        </div>
                 }
             </div>
         </div>

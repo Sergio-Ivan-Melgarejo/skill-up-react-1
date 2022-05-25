@@ -112,3 +112,14 @@
         transform: translate(0,0%);
     }
 }
+
+.home .language-btn{
+    position: absolute;
+    top: .5em;
+    right: .5em;
+
+    color: var(--primary-color);
+    font-size: 1.2em;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+}

@@ -30,7 +30,16 @@ const Favorites = ({logged,addOrDemoveFromFavorite}) => {
                         {   
                             moviesList.length !== 0
                             ?   <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
-                            :   <p className='nothing'>There is nothing here yet</p>
+                            :   <>
+                                    <p className='nothing'>There is nothing here yet</p>
+                                    <div className='detalle'>
+                                        <div className='detalle__box'></div>
+                                        <div className='detalle__box'></div>
+                                        <div className='detalle__box'></div>
+                                        <div className='detalle__box'></div>
+                                        <div className='detalle__box'></div>
+                                    </div>
+                                </>
                         }
                         </>
                     : null

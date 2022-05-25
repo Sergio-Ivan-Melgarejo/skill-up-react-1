@@ -15,6 +15,9 @@ import Home from "./pages/Home";
 // Style
 import "./css/app.css";
 
+// Context
+import { LanguageProvider } from "./context/LanguageContext";
+
 function App() {
   // Redirect if user is not logged
   const [logged, setLogged] = useState(localStorage.getItem("token") || false);
@@ -45,18 +48,20 @@ function App() {
 
   return (
     <div className="app container-fluid container-xxl p-0">
-      <Header logged={logged} setLogged={setLogged}/>
-      <main className="main">
-        <Routes >
-          <Route path="/" element={<Home logged={logged}/>} ></Route>
-          <Route path="/trends" element={<Trends logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />} ></Route>
-          <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
-          <Route path="/detail/:id" element={<Detail logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
-          <Route path="/search/*" element={<Search logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
-          <Route path="/favorites" element={<Favorites logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
-        </Routes>  
-      </main>
-      <Footer />
+      <LanguageProvider>
+        <Header logged={logged} setLogged={setLogged}/>
+        <main className="main">
+          <Routes >
+            <Route path="/" element={<Home logged={logged}/>} ></Route>
+            <Route path="/trends" element={<Trends logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />} ></Route>
+            <Route path="/login" element={<Login logged={logged} setLogged={setLogged}/>} ></Route>
+            <Route path="/detail/:id" element={<Detail logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
+            <Route path="/search/*" element={<Search logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
+            <Route path="/favorites" element={<Favorites logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
+          </Routes>  
+        </main>
+        <Footer />
+      </LanguageProvider>
     </div>
   );
 }

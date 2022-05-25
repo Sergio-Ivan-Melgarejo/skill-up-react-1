@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 // Style 
 import "../css/home.css";
 
-import img from "../img/bg.jpg"; 
+// Context
+import LanguageContext from '../context/LanguageContext';
+
+// extra
+import img from "../img/bg.jpg";
 
 const Home = ({logged}) => {
+  const {texts,handleLanguage} = useContext(LanguageContext);
+console.log(texts)
   return (
       <>
         <div className='home'>
@@ -20,25 +26,27 @@ const Home = ({logged}) => {
 
               <div className='home__text-container'>
                 <p className='home__text'>
-                  <span className='home__line-text'>Unlimited movies</span>
-                  <span className='home__line-text'>Watch anywhere. Cancel anytime.</span>
+                  <span className='home__line-text'>{texts.home.line1}</span>
+                  <span className='home__line-text'>{texts.home.line2}</span>
                 </p>
               </div>
                 {
                   logged 
                   ?   <p className='home__msg'>
-                        Welcome user, search in the 
-                        <Link to="/search" className='home__link btn'>search section</Link> 
-                        or see the current trend in the 
-                        <Link to="/trends" className='home__link btn'>trends section</Link> 
-                        and save what you want in 
-                        <Link to="/favorites" className="home__link btn">favorites</Link>
+                        {texts.home.mgs1} 
+                        <Link to="/search" className='home__link btn'>{texts.home.btn1}</Link> 
+                        {texts.home.mgs2}  
+                        <Link to="/trends" className='home__link btn'>{texts.home.btn2}</Link> 
+                        {texts.home.mgs3} 
+                        <Link to="/favorites" className="home__link btn">{texts.home.btn3}</Link>
                       </p>
                   :   <p className='home__msg'>Ready to watch?
                         <Link to="/login" className='home__link btn'>Sign in</Link> 
                         to be able to search and see more.
                       </p>  
                 }
+
+                <button onClick={handleLanguage} className='language-btn btn'>{texts.home["language-btn"]}</button>
             </div>
         </div>
       </>

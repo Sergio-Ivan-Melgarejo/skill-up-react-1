@@ -107,7 +107,7 @@ const Login = ({logged,setLogged}) => {
                 <form className='login__form' onSubmit={handleSubmit}>
                     <label className='label' htmlFor='email'>Email</label>
                     <input className='input' id='email' type="email" name="email" autoComplete='current-email' placeholder='challenge@alkemy.org'/>
-                    <label className='label' htmlFor='password'>password</label>
+                    <label className='label' htmlFor='password'>Password</label>
                     <input className='input' id='password' type="password" name="password" autoComplete='current-password' placeholder='react' />
                     <input className='btn' type="submit" value="Sign In" disabled={false} />
                     <p className='toDelete'>Email: challenge@alkemy.org</p>
