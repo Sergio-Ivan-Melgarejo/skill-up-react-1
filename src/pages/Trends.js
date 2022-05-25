@@ -25,7 +25,7 @@ const Trends = ({logged, addOrDemoveFromFavorite}) => {
   useEffect(() => {
     axios(`${ENPOINT}trending/all/day?api_key=${API_KEY}&language=${texts.lang}&sort_by=popularity.desc&include_adult=${adult}&page=${page}`)
     .then(res =>{ 
-      console.log(res);
+      // console.log(res);
       if(res.status === 200){
         // filtro peliculas
         let result = res.data.results.filter(movie =>movie.media_type === "movie");

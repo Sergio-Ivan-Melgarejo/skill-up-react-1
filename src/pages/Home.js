@@ -12,7 +12,6 @@ import img from "../img/bg.jpg";
 
 const Home = ({logged}) => {
   const {texts,handleLanguage} = useContext(LanguageContext);
-console.log(texts)
   return (
       <>
         <div className='home'>

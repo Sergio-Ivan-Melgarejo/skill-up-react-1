@@ -159,6 +159,18 @@ ul{
     border-radius: 2em;
     color: var(--text-second-color);
     background-color: var(--bg-card-color);
+    grid-column: 10 span;
+}
+
+.search .nothing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(5.5em);
+    height: 4em;
+    max-width: 1200px;
+    width: calc(100% - 1em);
+    margin: auto;
 }
 
 .detalle{
@@ -176,6 +188,10 @@ ul{
     flex-direction: column-reverse;
 }
 
+.search .detalle{
+    grid-column: 10 span;
+    width: 100%;
+}
 
 .detalle__box{
     background-color: var(--bg-card-color);

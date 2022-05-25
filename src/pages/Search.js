@@ -61,7 +61,7 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
         if(params["*"].length > 2){
             axios(`${ENPOINT}search/movie?api_key=${API_KEY}&language=${texts.lang}&include_adult=${adult}&page=${page}&query=${params["*"]}`)
             .then(res =>{ 
-                // console.log(res);
+                console.log(res);
                 if(res.status === 200){
                     setMoviesList(res.data.results);
                     if(res.data.results.length === 0){

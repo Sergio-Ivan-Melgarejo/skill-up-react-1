@@ -27,11 +27,11 @@ const Detail = ({logged,addOrDemoveFromFavorite}) => {
         const {id} = params;
         axios(`${ENPOINT}movie/${id}?api_key=${API_KEY}&language=${texts.lang}`)
         .then(res =>{ 
-        console.log(res);
+        // console.log(res);
         if(res.status === 200) setMovie(res.data);
         })
         .catch(error =>{
-        console.log(error)
+        // console.log(error)
         MySwal.fire({
             title: <strong>Error 404</strong>,
             html: <i>{error.message}</i>,

@@ -117,9 +117,8 @@
     position: absolute;
     top: .5em;
     right: .5em;
-
     color: var(--primary-color);
-    font-size: 1.2em;
+    font-size: 1em;
     background-color: transparent;
     border: 1px solid var(--primary-color);
 }
