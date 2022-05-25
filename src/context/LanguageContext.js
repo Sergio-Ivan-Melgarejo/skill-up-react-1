@@ -10,25 +10,25 @@ const translations = {
           line1:"Películas ilimitadas",
           line2:"Mira en cualquier lugar. Cancele en cualquier momento.",
           mgs1:"Bienvenida usuario, busca en la",
-          mgs2:"o ver la tendencia actual en la",
+          mgs2:"o ve la tendencia actual en la",
           mgs3:"y guarda lo que quieras en",
           mgs4:"¿Listo para mirar?",
           mgs5:"para poder buscar y ver más.",
           btn1:"sección de búsqueda",
           btn2:"sección de tendencias",
           btn3:"sección de favoritos",
-          btn4:"Registrate"
+          btn4:"Regístrate"
         },
         header:{
             nav1:"Inicio",
-            nav2:"Busqueda",
+            nav2:"Búsqueda",
             nav3:"Tendencias",
             nav4:"Favoritos",
             nav5:"Ingresar",
             subNav:{
                 btn1:"Cerrar seccion"
             },
-            msg1:'Esta seguro?',
+            msg1:'Estas seguro?',
             msg2:"Si"
         },
         footer:"Portafolio",
@@ -36,8 +36,8 @@ const translations = {
             title:"Tendencias"
         },
         search:{
-            title:"Busquedas",
-            placeholder:"Pelicula...",
+            title:" Busquedas",
+            placeholder:" Pelicula ...",
             btn:"Buscar",
             msg1:"No se han encontrado resultados",
             msg2:"Debes poner una palabra",
@@ -58,6 +58,9 @@ const translations = {
         },
         extra:{
             line1:"No hay resultado"
+        },
+        error:{
+            line1:"Esta Página no existe"
         }
     },
     "en-US": {
@@ -115,6 +118,9 @@ const translations = {
         },
         extra:{
             line1:"No results found"
+        },
+        error:{
+            line1:"This page does not exist"
         }
     },
 };

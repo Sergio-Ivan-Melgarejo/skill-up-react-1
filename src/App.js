@@ -11,6 +11,7 @@ import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
+import Error from "./pages/Error";
 
 // Style
 import "./css/app.css";
@@ -58,6 +59,7 @@ function App() {
             <Route path="/detail/:id" element={<Detail logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
             <Route path="/search/*" element={<Search logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
             <Route path="/favorites" element={<Favorites logged={logged} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />}></Route>
+            <Route path="*" element={<Error logged={logged} />}></Route>
           </Routes>  
         </main>
         <Footer />
