@@ -92,6 +92,7 @@
 
 .avatar-conf .btn{
     background-color: var(--bg-color);
+    color: var(--primary-color);
     width: 100%;
 }
 
@@ -105,6 +106,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    background-color: #00000099;
     background-color: #00000099;
     z-index: 9;
     transform: scale(0);
