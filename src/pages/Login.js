@@ -69,7 +69,7 @@ const Login = ({logged,setLogged}) => {
             password:password
         })
         .then(res=> {
-            console.log(res)
+            // console.log(res)
             if(res.status === 200) {
                 localStorage.setItem("token",res.data.token);
                 setLogged(res.data.token);
@@ -86,7 +86,7 @@ const Login = ({logged,setLogged}) => {
             console.log(error)
             MySwal.fire({
                 title: <strong>Error</strong>,
-                html: <i>An error occurred, please try again later</i>,
+                html: <i>{texts.login.error}</i>,
                 icon: 'error',
                 background: "#161d2f",
                 color: "#eee"

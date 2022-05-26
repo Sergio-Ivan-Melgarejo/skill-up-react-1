@@ -18,7 +18,7 @@ const ENPOINT = "https://api.themoviedb.org/3/";
 const adult = "false";
 const page = 1;
 
-const Trends = ({logged, addOrDemoveFromFavorite}) => {
+const Trends = ({logged}) => {
   const {texts} = useContext(LanguageContext);
   const [moviesList, setMoviesList] = useState(false)
 
@@ -49,7 +49,7 @@ const Trends = ({logged, addOrDemoveFromFavorite}) => {
   return (
     <>
       <h2 className='title'>{texts.trends.title}</h2>
-      <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
+      <ShowMoviesList data={moviesList}/>
     </>
   )
 }

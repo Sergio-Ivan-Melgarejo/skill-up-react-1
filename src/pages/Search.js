@@ -22,7 +22,7 @@ const ENPOINT = "https://api.themoviedb.org/3/";
 const adult = "false";
 const page = 1;
 
-const Search = ({logged,addOrDemoveFromFavorite}) => {
+const Search = ({logged}) => {
     const {texts} = useContext(LanguageContext);
     const params = useParams();
     const navigate = useNavigate();
@@ -61,7 +61,7 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
         if(params["*"].length > 2){
             axios(`${ENPOINT}search/movie?api_key=${API_KEY}&language=${texts.lang}&include_adult=${adult}&page=${page}&query=${params["*"]}`)
             .then(res =>{ 
-                console.log(res);
+                // console.log(res);
                 if(res.status === 200){
                     setMoviesList(res.data.results);
                     if(res.data.results.length === 0){
@@ -90,7 +90,7 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
             navigate("/search")
         }
 
-    }, [setMoviesList,params,navigate])
+    }, [setMoviesList,params,navigate,texts])
 
     if(!logged) return <Navigate to="/login" />
 
@@ -104,7 +104,7 @@ const Search = ({logged,addOrDemoveFromFavorite}) => {
                 </form>
                 {
                     params["*"]
-                    ?   <ShowMoviesList data={moviesList} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
+                    ?   <ShowMoviesList data={moviesList}/>
                     :   <div className='detalle'>
                             <div className='detalle__box'></div>
                             <div className='detalle__box'></div>

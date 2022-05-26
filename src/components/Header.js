@@ -30,6 +30,7 @@ function Header ({logged,setLogged}) {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: texts.header.msg2,
+            cancelButtonText: texts.header.msg3,
             background: "#161d2f",
             color: "#eee"
         }).then((result) => {

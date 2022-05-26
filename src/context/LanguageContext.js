@@ -29,7 +29,8 @@ const translations = {
                 btn1:"Cerrar seccion"
             },
             msg1:'Estas seguro?',
-            msg2:"Si"
+            msg2:"Si",
+            msg3:"Cancelar"
         },
         footer:"Portafolio",
         trends:{
@@ -45,7 +46,8 @@ const translations = {
         },
         favorite:{
             title:"Favorite",
-            line1:"No hay nada aqui todavia"
+            line1:"No hay nada aqui todavia",
+            btn:"Reiniciar"
         },
         login:{
             title:"Iniciar sesión",
@@ -54,10 +56,13 @@ const translations = {
             msg1:"Los campos no pueden estar vacíos",
             msg2:"Debes escribir un correo electrónico válido",
             msg3:"Credenciales no válidas",
-            msg4:"Ingresado correctamente"
+            msg4:"Ingresado correctamente",
+            error:"Ocurrio un error, por favor intentalo de nuevo mas tarde"
         },
         extra:{
-            line1:"No hay resultado"
+            line1:"No hay resultado",
+            line2:"Se ha guardado en favoritos",
+            line3:"Ha sido eliminado a favoritos"
         },
         error:{
             line1:"Esta Página no existe"
@@ -89,7 +94,8 @@ const translations = {
                 btn1:"Sing out"
             },
             msg1:'Are you sure?',
-            msg2:"Yes"
+            msg2:"Yes",
+            msg3:"Cancel"
         },
         footer:"Portfolio",
         trends:{
@@ -105,7 +111,8 @@ const translations = {
         },
         favorite:{
             title:"Favorites",
-            line1:"There is nothing here yet"
+            line1:"There is nothing here yet",
+            btn:"Reset"
         },
         login:{
             title:"Sign In",
@@ -114,10 +121,13 @@ const translations = {
             msg1:"The fields cannot be empty",
             msg2:"You must write a valid email",
             msg3:"Invalid Credentials",
-            msg4:"Entered correctly"
+            msg4:"Entered correctly",
+            error:"An error occurred, please try again later"
         },
         extra:{
-            line1:"No results found"
+            line1:"No results found",
+            line2:"Has been saved to favorites",
+            line3:"Has been deleted to favorites"
         },
         error:{
             line1:"This page does not exist"

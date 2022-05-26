@@ -1,6 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom';
 
+// Components
+import ButtonFavorite from '../components/ButtonFavorite';
+import Loader from '../components/Loader';
+
 // Styles
 import "../css/detail.css";
 
@@ -11,14 +15,12 @@ import LanguageContext from '../context/LanguageContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import ButtonFavorite from '../components/ButtonFavorite';
-import Loader from '../components/Loader';
 const MySwal = withReactContent(Swal);
 
 const API_KEY = "599b1ab5492b9cdab8144e5bf20b6ae5";
 const ENPOINT = "https://api.themoviedb.org/3/";
 
-const Detail = ({logged,addOrDemoveFromFavorite}) => {
+const Detail = ({logged}) => {
     const {texts} = useContext(LanguageContext);
     const params = useParams();
     const [movie, setMovie] = useState(false);
@@ -66,7 +68,7 @@ const Detail = ({logged,addOrDemoveFromFavorite}) => {
                             <div className='detail__data'>
                                 <div className='detail__img-container'>
                                     <img className='detail__img' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=''/>
-                                    <ButtonFavorite data={dataFavorite} addOrDemoveFromFavorite={addOrDemoveFromFavorite} />
+                                    <ButtonFavorite data={dataFavorite}/>
                                 </div>
                                 <div className='detail__info'>
                                     <h3 className='detail__sub-title'>{movie.original_title}</h3>
