@@ -3,6 +3,7 @@
     margin: auto;
     word-spacing: .2em;
     letter-spacing: .1em;
+    min-height: 100vh;
 }
 
 .detail__container{
@@ -84,6 +85,7 @@
     padding: 1em;
     background-color: var(--bg-card-color);
     border-radius: 5px;
+    min-width: 300px;
 }
 
 .detail__sub-title{
