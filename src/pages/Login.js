@@ -57,8 +57,8 @@ const Login = ({logged,setLogged}) => {
             setLoadin(false)
             return
         }
-        
-        if(regexEmail !== "challenge@alkemy.org"  && password !== "react"){
+       
+        if(email !== "challenge@alkemy.org" || password !== "react"){
             MySwal.fire({
                 title: <strong>Error</strong>,
                 html: <i>{texts.login.msg3}</i>,
